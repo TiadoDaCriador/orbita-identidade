@@ -1,0 +1,238 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Órbita — identidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400;75..100,500;75..100,600;75..100,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --papel:#EDEAE0;
+  --papel-fundo:#E2DED1;
+  --tinta:#101014;
+  --grafite:#6E6D64;
+  --transito:#C4442B;
+  --latao:#D9B44A;
+  --fio:rgba(16,16,20,.16);
+  --f:"Archivo",-apple-system,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--f);background:var(--papel);color:var(--tinta);line-height:1.45}
+::selection{background:var(--transito);color:var(--papel)}
+:focus-visible{outline:2px solid var(--transito);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+.band{padding:42px 0;border-top:1px solid var(--fio)}
+.band-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.band-head h2{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.band-head span{font-size:12px;color:var(--grafite);border-left:1px solid var(--fio);padding-left:16px;max-width:52ch}
+
+/* hero */
+.hero{min-height:62svh;display:grid;grid-template-columns:1fr 400px;gap:32px;align-items:center;padding:60px 0 30px}
+.hero h1{font-size:clamp(42px,7vw,96px);line-height:.87;font-weight:700;letter-spacing:-.045em;font-variation-settings:"wdth" 86;text-transform:lowercase}
+.hero h1 em{font-style:normal;display:block}
+.hero p{max-width:36ch;margin-top:30px;font-size:17px;color:#3A3A36}
+.acoes{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{font:inherit;font-size:14px;font-weight:500;padding:13px 26px;border-radius:999px;border:1px solid var(--tinta);background:var(--tinta);color:var(--papel);cursor:pointer;transition:background .18s,color .18s}
+.btn:hover{background:transparent;color:var(--tinta)}
+.btn.linha{background:transparent;color:var(--tinta)}
+.btn.linha:hover{background:var(--tinta);color:var(--papel)}
+.rodape-hero{display:flex;gap:28px;flex-wrap:wrap;font-size:11px;color:var(--grafite);margin-top:56px;letter-spacing:.02em}
+
+/* marca */
+.orb{width:100%;height:auto;display:block;overflow:visible}
+.orb .traj{fill:none;stroke:var(--tinta);stroke-width:1;vector-effect:non-scaling-stroke}
+.orb .nucleo{fill:var(--tinta);stroke:none}
+.orb .no{fill:var(--transito);stroke:none}
+.orb .no-2{fill:var(--latao);stroke:none}
+
+.grelha{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.cel{background:var(--papel);padding:22px 20px 24px;display:flex;align-items:center;justify-content:center;min-height:160px;position:relative}
+.cel.inv{background:var(--tinta)}
+.cel.inv .lock{color:var(--papel)}
+.cel.inv .orb .traj{stroke:var(--papel)}
+.cel.inv .orb .nucleo{fill:var(--papel)}
+.cel::after{content:attr(data-l);position:absolute;bottom:11px;left:14px;font-size:10px;letter-spacing:.06em;color:var(--grafite)}
+.cel.inv::after{color:rgba(237,234,224,.45)}
+.lock{display:flex;align-items:center;gap:13px;font-weight:700;letter-spacing:-.045em;font-variation-settings:"wdth" 82}
+.lock.pil{flex-direction:column;gap:12px}
+.nome{font-size:31px;line-height:1}
+.nome.p{font-size:20px}
+
+/* poster / cartão */
+.posters{display:flex;gap:26px;flex-wrap:wrap}
+.poster{width:260px;aspect-ratio:.64;border-radius:20px;border:1px solid var(--fio);background:var(--papel);padding:18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.poster.noite{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
+.poster.noite .traj{stroke:var(--papel)}
+.poster.noite .nucleo{fill:var(--papel)}
+.poster.noite .selo{border-color:rgba(237,234,224,.5)}
+.poster.noite .selo svg{stroke:var(--papel)}
+.poster.noite .ponto{background:var(--papel)}
+.marca-lat{position:absolute;top:20px;right:23px;writing-mode:vertical-rl;font-size:31px;font-weight:700;letter-spacing:-.045em;font-variation-settings:"wdth" 80}
+.ponto{width:24px;height:24px;border-radius:50%;background:var(--tinta)}
+.poster-orb{margin:auto 0;padding-right:24px}
+.rodape-p{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.par{display:flex;gap:7px;align-items:center}
+.cheio{width:24px;height:24px;border-radius:50%;background:var(--transito)}
+.aro{width:24px;height:24px;border-radius:50%;border:5px solid var(--latao)}
+.etq{writing-mode:vertical-rl;font-size:11px;letter-spacing:.15em;font-weight:500}
+
+/* selos */
+.selo{width:42px;height:42px;border:1px solid var(--tinta);display:grid;place-items:center}
+.selo svg{stroke:var(--tinta);fill:none;stroke-width:1.15;stroke-linecap:round}
+.selos{display:flex;gap:13px;flex-wrap:wrap}
+
+/* cor */
+.amostras{display:flex;flex-wrap:wrap;gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.am{flex:1 1 150px;height:86px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;font-size:11px;line-height:1.4}
+.am b{display:block;font-weight:500;font-size:12px}
+
+/* tenants */
+.tenants{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.tn{background:var(--papel);padding:15px 18px}
+.tn .barra{height:5px;border-radius:3px;margin-bottom:10px}
+.tn h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.tn p{font-size:12px;color:var(--grafite);margin-top:5px}
+
+/* tipo */
+.escala>div{border-bottom:1px solid var(--fio);padding:10px 0;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap}
+.escala small{font-size:10px;color:var(--grafite);min-width:66px}
+
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding:88px 0 56px;gap:36px}
+  .hero-vis{max-width:300px}
+  .band{padding:60px 0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <h1><em>a associação</em><em>toda num</em><em>só sítio.</em></h1>
+      <p>Sócios, quotas, eventos e comunicação. Feito para quem trata disto ao serão, sem ser da área.</p>
+      <div class="acoes">
+        <button class="btn">Pedir uma demonstração</button>
+        <button class="btn linha">Ver o back-office</button>
+      </div>
+      <div class="rodape-hero"><span>Órbita</span><span>Multi-tenant</span><span>Dados alojados na UE · RGPD</span></div>
+    </div>
+    <div class="hero-vis"><svg class="orb" viewBox="0 0 400 400" data-orb="9" data-nos="1" aria-label="Marca Órbita"></svg></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="band">
+    <div class="band-head"><h2>Marca</h2><span>Um núcleo cheio e trajetórias em volta: a plataforma ao centro, cada associação na sua órbita. O nó a cor marca o tenant ativo.</span></div>
+    <div class="grelha">
+      <div class="cel" data-l="Horizontal"><div class="lock"><svg class="orb" style="width:46px" viewBox="0 0 400 400" data-orb="4" data-nos="1"></svg><span class="nome">órbita</span></div></div>
+      <div class="cel" data-l="Vertical"><div class="lock pil"><svg class="orb" style="width:64px" viewBox="0 0 400 400" data-orb="5" data-nos="1"></svg><span class="nome p">órbita</span></div></div>
+      <div class="cel" data-l="Símbolo"><svg class="orb" style="width:104px" viewBox="0 0 400 400" data-orb="7" data-nos="2"></svg></div>
+      <div class="cel inv" data-l="Invertido"><div class="lock"><svg class="orb" style="width:46px" viewBox="0 0 400 400" data-orb="4" data-nos="1"></svg><span class="nome">órbita</span></div></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head"><h2>Cartão de sócio</h2><span>A mesma composição do póster: wordmark a correr pela margem, sistema descentrado, selos no rodapé.</span></div>
+    <div class="posters">
+      <div class="poster">
+        <div class="marca-lat">órbita</div>
+        <div class="ponto"></div>
+        <div class="poster-orb"><svg class="orb" viewBox="0 0 400 400" data-orb="11" data-nos="2"></svg></div>
+        <div class="rodape-p">
+          <div class="par"><span class="cheio"></span><span class="aro"></span></div>
+          <div class="selo"><svg width="19" height="19" viewBox="0 0 20 20"><circle cx="10" cy="10" r="6"/><circle cx="10" cy="4" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+          <div class="etq">sócio</div>
+        </div>
+      </div>
+      <div class="poster noite">
+        <div class="marca-lat">órbita</div>
+        <div class="ponto"></div>
+        <div class="poster-orb"><svg class="orb" viewBox="0 0 400 400" data-orb="11" data-nos="2"></svg></div>
+        <div class="rodape-p">
+          <div class="par"><span class="cheio"></span><span class="aro"></span></div>
+          <div class="selo"><svg width="19" height="19" viewBox="0 0 20 20"><path d="M10 3v14M3 10h14"/></svg></div>
+          <div class="etq">direção</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head"><h2>Selos</h2><span>Moldura quadrada de 1px, traço aberto. Um por área do back-office.</span></div>
+    <div class="selos">
+      <div class="selo" title="Sócios"><svg width="19" height="19" viewBox="0 0 20 20"><circle cx="7.5" cy="7" r="2.8"/><path d="M3 16c.6-3 2.4-4.2 4.5-4.2S11.4 13 12 16"/><path d="M13 6.5a2.6 2.6 0 010 5"/></svg></div>
+      <div class="selo" title="Quotas"><svg width="19" height="19" viewBox="0 0 20 20"><rect x="3" y="5.5" width="14" height="9" rx="1.4"/><path d="M3 9h14"/></svg></div>
+      <div class="selo" title="Eventos"><svg width="19" height="19" viewBox="0 0 20 20"><rect x="3.5" y="4.5" width="13" height="12" rx="1.4"/><path d="M3.5 8h13M7 3v3M13 3v3"/></svg></div>
+      <div class="selo" title="Conteúdo"><svg width="19" height="19" viewBox="0 0 20 20"><path d="M4 5h12M4 9h12M4 13h7"/></svg></div>
+      <div class="selo" title="Órbita / tenant"><svg width="19" height="19" viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="7" ry="3.4" transform="rotate(-22 10 10)"/><circle cx="10" cy="10" r="1.8" fill="currentColor" stroke="none"/></svg></div>
+      <div class="selo" title="Registo"><svg width="19" height="19" viewBox="0 0 20 20"><path d="M4 13.5l3.5-3.5 2.6 2.6L16 6.5"/></svg></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head"><h2>Cor</h2><span>Papel e tinta carregam tudo. Trânsito e latão só em elementos pequenos: nós, estados, avisos.</span></div>
+    <div class="amostras">
+      <div class="am" style="background:#EDEAE0"><b>Papel</b>#EDEAE0</div>
+      <div class="am" style="background:#E2DED1"><b>Papel fundo</b>#E2DED1</div>
+      <div class="am" style="background:#101014;color:#EDEAE0"><b>Tinta</b>#101014</div>
+      <div class="am" style="background:#6E6D64;color:#EDEAE0"><b>Grafite</b>#6E6D64</div>
+      <div class="am" style="background:#C4442B;color:#EDEAE0"><b>Trânsito</b>#C4442B</div>
+      <div class="am" style="background:#D9B44A"><b>Latão</b>#D9B44A</div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head"><h2>Cor por associação</h2><span>Sendo multi-tenant, cada cliente traz o seu tom. Entra só no nó da órbita e nos estados; papel, tinta e tipografia nunca mudam.</span></div>
+    <div class="tenants">
+      <div class="tn"><div class="barra" style="background:#C4442B"></div><h3>Órbita</h3><p>Trânsito · #C4442B</p></div>
+      <div class="tn"><div class="barra" style="background:#4C6B45"></div><h3>Clube de vinhos</h3><p>Vinha · #4C6B45</p></div>
+      <div class="tn"><div class="barra" style="background:#2B4C7E"></div><h3>Associação náutica</h3><p>Enseada · #2B4C7E</p></div>
+      <div class="tn"><div class="barra" style="background:#7A3E6B"></div><h3>Banda filarmónica</h3><p>Palco · #7A3E6B</p></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head"><h2>Tipografia</h2><span>Archivo variável. Títulos comprimidos a wdth 82–86; corpo e interface a 100 para legibilidade em tabelas.</span></div>
+    <div class="escala">
+      <div><small>Display</small><span style="font-size:54px;font-weight:700;letter-spacing:-.045em;font-variation-settings:'wdth' 84;line-height:1">órbita</span></div>
+      <div><small>Título</small><span style="font-size:27px;font-weight:700;letter-spacing:-.03em;font-variation-settings:'wdth' 88">Quotas por regularizar</span></div>
+      <div><small>Corpo</small><span style="font-size:17px">Cada sócio vê o seu histórico e paga sem sair da app.</span></div>
+      <div><small>Tabela</small><span style="font-size:13px;font-weight:500">142 sócios ativos · 18 em atraso</span></div>
+      <div><small>Etiqueta</small><span style="font-size:11px;letter-spacing:.15em;font-weight:500">sócio</span></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// Sistema orbital: elipses concêntricas com inclinações progressivas,
+// núcleo cheio e um ou dois nós assentes sobre trajetórias.
+function sistema(svg, n, nos){
+  const cx=200, cy=200, R=176, out=[];
+  for(let i=0;i<n;i++){
+    const t=(i+1)/n;
+    const rx=R*t;
+    const ry=R*t*(0.28+0.62*Math.abs(Math.sin(1.9*Math.PI*t)));
+    const rot=(i*180/n)-14;
+    out.push(`<ellipse class="traj" cx="${cx}" cy="${cy}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" transform="rotate(${rot.toFixed(1)} ${cx} ${cy})"/>`);
+  }
+  out.push(`<circle class="nucleo" cx="${cx}" cy="${cy}" r="${(R*0.115).toFixed(1)}"/>`);
+
+  // nós colocados no vértice direito da trajetória exterior e de uma interior
+  const pos=[{i:n-1,a:0},{i:Math.max(0,n-4),a:Math.PI}];
+  for(let k=0;k<Math.min(nos,2);k++){
+    const p=pos[k], t=(p.i+1)/n, rx=R*t, rot=((p.i*180/n)-14)*Math.PI/180;
+    const x=rx*Math.cos(p.a), y=0;
+    const px=cx+x*Math.cos(rot)-y*Math.sin(rot);
+    const py=cy+x*Math.sin(rot)+y*Math.cos(rot);
+    out.push(`<circle class="${k?'no-2':'no'}" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="${(R*0.075).toFixed(1)}"/>`);
+  }
+  svg.innerHTML=out.join('');
+}
+document.querySelectorAll('.orb').forEach(s=>{
+  sistema(s, parseInt(s.dataset.orb||'9',10), parseInt(s.dataset.nos||'1',10));
+});
+</script>
